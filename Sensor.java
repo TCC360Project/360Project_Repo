@@ -87,7 +87,7 @@ public class Sensor {
     	}
     	
     	// Determines magnitude of data change
-    	// Allows no more larger change than 10%
+    	// Allows no more larger change than 1%
     	int change = random.nextInt(11);
     	
 		if (theData != 0.0) {
