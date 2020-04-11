@@ -29,8 +29,12 @@ public class ISS {
          Thread t = new Thread(sensors);
          t.start(); 
      }
+	
+	//The main method.  If you add code make sure to add it in Runnable mainRun to run with the thread. 
+	//If you add it outside it will run like a normal main method
      public static void main(String[] args) throws InterruptedException
      {
+    	    //powerswitch activates the threads that start the sensors data generation
     	 	powerSwitch = true;
     	 	int test = 4;
     	 	while(powerSwitch) {
@@ -53,6 +57,7 @@ public class ISS {
     	 			theRain = myArr[3];
     	 			minOrMax(theRain, RAIN_TYPE);
     	 		};
+    	 		//Here a sleep timer is set for 2.5 seconds for each run to make the thread wait before gathering the next data
     	 		Thread t = new Thread(mainRun);
     	 		t.start();
     	 		java.util.concurrent.TimeUnit.MILLISECONDS.sleep(2500);
@@ -74,6 +79,14 @@ public class ISS {
 //    	 	
     	 	
      }
+     
+ 	/**
+ 	 * This method will find the min or max value of the type of data specified for future display
+ 	 * 
+ 	 * 
+ 	 * @param data  data is the current data being passed to compare
+ 	 * @param type  type is a numbering system to tell the type of weather you want to find the Min or Max of TEMP_TYPE = 0 HUM_TYPE = 1 WIND_TYPE = 2  RAIN_TYPE = 3
+ 	 */
      public static void minOrMax(double data, int type) {
     	if(data < minArray[type]) {
     		minArray[type] = data;
