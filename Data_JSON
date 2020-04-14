@@ -1,0 +1,52 @@
+// JSON DATA
+
+[
+  {
+    "Sensor": 1,
+    "Temperature": 60.0,
+    "Humidity": 44.0,
+    "Wind" :  10.0,
+    "Rain" : 0.0
+  },
+  {
+    "Sensor": 2,
+    "Temperature": 59.52,
+    "Humidity": 43.78,
+    "Wind" :  9.9,
+    "Rain" : 0.0
+  },
+  {
+   "Sensor": 3,
+    "Temperature": 58.92,
+    "Humidity": 43.74,
+    "Wind" :  9.89,
+    "Rain" : 0.01
+  },
+  {
+    "Sensor": 4,
+    "Temperature": 59.27,
+    "Humidity": 43.12,
+    "Wind" :  9.83,
+    "Rain" : 0.01
+  {
+    "Sensor": 5,
+    "Temperature": 58.97,
+    "Humidity": 42.99,
+    "Wind" :  9.88,
+    "Rain" : 0.01
+  {
+     "Sensor": 6,
+    "Temperature": 58.44,
+    "Humidity": 443.42,
+    "Wind" :  9.98,
+    "Rain" : 0.01
+  },
+  {
+    "Sensor": 7,
+    "Temperature": 59.32,
+    "Humidity": 43.12,
+    "Wind" :  9.91,
+    "Rain" : 0.01
+  }
+
+]
