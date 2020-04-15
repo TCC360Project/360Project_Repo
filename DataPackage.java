@@ -25,20 +25,11 @@ import org.json.JSONObject;
 
 public class Data{
 	
-
-
 	public static void main(String []args) {
 		
-		
-		
-		
 		HttpClient  client = HttpClient.newHttpClient();
-		
 		//HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://my-json-server.typicode.com/GandaKen/jsondata")).build();
-		
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://github.com/TCC360Project/360Project_Repo/blob/master/jsondata.json")).build();
-		
-		
 		client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
 			   .thenApply(HttpResponse:: body)
 			   //.thenAccept(System.out::println)
