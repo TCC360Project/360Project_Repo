@@ -3,7 +3,7 @@
  * */
 /**
  * Program Description: Sensor class generates data for the V2SensorSuite.
- * @author Jess Lastname
+ * @author Jess Smith
  * @author Leika Yamada
  * @author Jacob Sousie
  * @author Xiuxiang Wu
