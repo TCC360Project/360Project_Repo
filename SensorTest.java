@@ -5,11 +5,14 @@ package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import structure.Sensor;
 
 /**
  * @author Xiuxiang Wu
+ * @author Leika Yamada
  * @version 4.14.20
  *
  */
@@ -25,7 +28,8 @@ class SensorTest {
 	void testSensorDoubleArray() {
 		double[] theArr = {60, 44, 10, 0};
 		Sensor sensor = new Sensor(theArr);
-		assertEquals(44, sensor.theArr[1]);
+		theArr = sensor.getTheArray();
+		assertEquals(44, theArr[1]);
 		
 	}
 
@@ -169,10 +173,19 @@ class SensorTest {
 		double value = 123.4568;
 		int places = 2;
 		assertEquals(123.46,Sensor.round(value, places));
-		places = -1;
-
-
 	}
-
+	
+	/**
+	 * Test method for {@link structure.Sensor#round(double, int)}.
+	 */
+	@Test
+	void testExpectedException() {
+		double value = 123.4568;
+		int places = -2;
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+		Sensor.round(value, places);
+	  });
+	 
+	}
 
 }

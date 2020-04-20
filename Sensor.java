@@ -1,10 +1,11 @@
+package structure;
 import java.util.Random;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 /**
  * Program Description: Sensor class generates data for the V2SensorSuite.
- * @author Jess Lastname
+ * @author Jess Smith
  * @author Leika Yamada
  * @author Jacob Sousie
  * 
@@ -12,13 +13,13 @@ import java.text.DecimalFormat;
  * */
 public class Sensor implements Runnable{ //changed to implement runnable
 	// made fields modifiable 
-    private double theTemperature = 60;
-    private double theHumidity = 44;
-    private double theWind = 10;
-    private double theRain = 0;
+    private double theTemperature = -125;//60;
+    private double theHumidity = 55;//44;
+    private double theWind = 102;//10;
+    private double theRain = 9;
 
     //changes
-    public double[] theArr;
+    protected double[] theArr;
     
     
     /**
@@ -35,6 +36,10 @@ public class Sensor implements Runnable{ //changed to implement runnable
     	
     	// Assign new sensor readings based off parameters
     	theArr = myArr;
+//    	theArr[0] = theTemperature;
+//    	theArr[1] = theHumidity;
+//    	theArr[2] = theWind;
+//        theArr[3] = theRain;
     }
     
     
@@ -78,6 +83,12 @@ public class Sensor implements Runnable{ //changed to implement runnable
     	theWind = generateNotRainData(myWind);
     	// Reset theRain to 0 for new day
     	theRain = 0;
+    }
+    /**This method gets the array inside sensor. 
+     * @ return the sensor array;
+     * */
+    public double[] getTheArray() {
+    	return theArr;
     }
 
 	public double getTheTemperature() {
@@ -170,22 +181,22 @@ public class Sensor implements Runnable{ //changed to implement runnable
 	 * @param args
 	 */
 	public static void main(String[] args) {
-        Sensor s1 = new Sensor();
-        Sensor s2 = new Sensor(s1);
-        Sensor s3 = new Sensor(s2);
-        Sensor s4 = new Sensor(s3);
-        Sensor s5 = new Sensor(s4);
-        Sensor s6 = new Sensor(s5);
-        Sensor s7 = new Sensor(s5.getTheTemperature(), s5.getTheHumidity(), s5.getTheWind());
-        
-        System.out.println("Sensor 1 Data: " + s1.toString());
-        System.out.println("Sensor 2 Data: " + s2.toString());
-        System.out.println("Sensor 3 Data: " + s3.toString());
-        System.out.println("Sensor 4 Data: " + s4.toString());
-        System.out.println("Sensor 5 Data: " + s5.toString());
-        System.out.println("Sensor 6 Data: " + s6.toString());
-        System.out.println("It's a new day!");
-        System.out.println("Sensor 7 Data: " + s7.toString());
+//        Sensor s1 = new Sensor();
+//        Sensor s2 = new Sensor(s1);
+//        Sensor s3 = new Sensor(s2);
+//        Sensor s4 = new Sensor(s3);
+//        Sensor s5 = new Sensor(s4);
+//        Sensor s6 = new Sensor(s5);
+//        Sensor s7 = new Sensor(s5.getTheTemperature(), s5.getTheHumidity(), s5.getTheWind());
+//        
+//        System.out.println("Sensor 1 Data: " + s1.toString());
+//        System.out.println("Sensor 2 Data: " + s2.toString());
+//        System.out.println("Sensor 3 Data: " + s3.toString());
+//        System.out.println("Sensor 4 Data: " + s4.toString());
+//        System.out.println("Sensor 5 Data: " + s5.toString());
+//        System.out.println("Sensor 6 Data: " + s6.toString());
+//        System.out.println("It's a new day!");
+//        System.out.println("Sensor 7 Data: " + s7.toString());
         
 	}
 	/**
@@ -195,7 +206,7 @@ public class Sensor implements Runnable{ //changed to implement runnable
 	 * @param value  The number that will be rounded
 	 * @param places The number of place values that you will round to
 	 */
-	public static double round(double value, int places) {
+	public static double round(double value, int places) throws IllegalArgumentException{
 		if (places < 0)
 			throw new IllegalArgumentException();
 		BigDecimal bigDecimalValue = BigDecimal.valueOf(value);
